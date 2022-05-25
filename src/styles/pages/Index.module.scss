@@ -1,0 +1,23 @@
+$breakpoint-tablet: 768px;
+.Layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows:  1fr auto;
+    height: 100vh;
+    
+    .component {
+        height: 100%;
+        width: 100%;
+        grid-row: 1;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+    
+    Footer {
+        grid-row: 2;
+    }
+}

@@ -20,6 +20,7 @@ const nextConfig = {
   ) {
     return {
       '/': { page: '/' },
+      'dashboard': { page: '/dashboard' },
     }
   },
 }

@@ -21,6 +21,7 @@ export default class MyDocument extends Document {
           />
         </Head>
         <body>
+          <div id="page-transition"></div>
           <Main />
           <NextScript />
         </body>

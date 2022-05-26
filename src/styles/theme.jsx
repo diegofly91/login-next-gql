@@ -25,7 +25,7 @@ const theme = createTheme({
           fontWeight: 600
         },
       },
-    }
+    },
   }
 });
 

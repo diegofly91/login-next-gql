@@ -17,7 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@/styles/*": ["src/styles/*"],
-      "@/section/*": ["sections-pages/*"],
+      "@/gql/*": ["src/gql/*"],
       "@/constant/*":["constant/*"],
       "@/components/*":["src/components/*"],
       "@/hooks/*":["src/hooks/*"],
@@ -26,8 +26,7 @@
       "@/constants/*": ["src/constants/*"],
       "@/interfaces/*": ["src/interfaces/*"],
       "@/contexts/*": ["src/contexts/*"],
-      "@/services/*": ["src/services/*"]
-
+      "@/validations/*": ["src/validations/*"]
     },
   },
   "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx"],

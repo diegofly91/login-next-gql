@@ -1,6 +1,9 @@
 import { Theme, alpha } from "@mui/material/styles";
 
 const CssTextField = ({ theme }: { theme: Theme }) => ({
+  "&.Mui-error > .MuiInputBase-input": {
+    borderColor: "red !important",
+  },
   "label + &": {
     marginTop: theme.spacing(0),
   },
@@ -18,7 +21,7 @@ const CssTextField = ({ theme }: { theme: Theme }) => ({
       "box-shadow",
     ]),
     width: "100%",
-    maxWidth: 500,
+    maxWidth: "100%",
     // Use the system font instead of the default Roboto font.
     fontFamily: [
       "-apple-system",

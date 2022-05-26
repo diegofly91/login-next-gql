@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import theme from "@/styles/theme";
+import Footer from "@/components/footer/Footer";
 
 type Props = {
   className?: any;
@@ -15,6 +16,7 @@ const LayoutDashboard = ({ className, children }: Props) => {
         <title>Posta | Digitunos Dashboard</title>
       </Head>
       {children}
+      <Footer />
     </div>
   );
 };

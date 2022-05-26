@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import { ILogin } from "@/interfaces/login";
+import { ILogin } from "@/interfaces/index";
 
 export const LoginYup = yup.object().shape({
   password: yup

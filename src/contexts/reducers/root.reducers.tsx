@@ -3,12 +3,12 @@ import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import loginReducer from "./login/login.slice.reducer";
 import userReducer from "./user/user.slice.reducer";
-/*
-import { PayloadAction, CaseReducer } from '@reduxjs/toolkit';
-*/
+import dashboardReducer from "./dashboard/dashboard.slice.reducer";
+
 const reducers = combineReducers({
   login: loginReducer,
   user: userReducer,
+  dashboard: dashboardReducer,
 });
 
 const persistConfig = {

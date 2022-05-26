@@ -1,4 +1,4 @@
-import { IUserPayload } from "@/interfaces/user.payload";
+import { IUserPayload } from "@/interfaces/index";
 
 export const initialUserPayloadState: IUserPayload = {
   id: 0,

@@ -1,5 +1,5 @@
 import { PayloadAction, CaseReducer } from "@reduxjs/toolkit";
-import { ILogin } from "@/interfaces/login";
+import { ILogin } from "@/interfaces/index";
 
 export const updateUsername: CaseReducer<ILogin, PayloadAction<string>> = (
   state,

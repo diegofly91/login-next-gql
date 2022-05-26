@@ -5,7 +5,7 @@ import { USER_CURRENT } from "../gql/querys/current";
 import { useDispatch, useSelector } from "react-redux";
 import { Reducer } from "redux";
 import { UpdateUserPayload } from "@/contexts/reducers/user/user.slice.reducer";
-import { IContext } from "@/interfaces/context.user";
+import { IContext } from "@/interfaces/index";
 
 type Props = {
   children: React.ReactNode;

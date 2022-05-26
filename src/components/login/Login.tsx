@@ -1,6 +1,6 @@
+import { useContext } from "react";
 import { Grid, FormHelperText } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
-import Router from "next/router";
 import { Reducer } from "redux";
 import TextFieldCustom from "../inputs/TextFieldCustom";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,8 +13,10 @@ import { useFormik } from "formik";
 import { useMutation } from "@apollo/client";
 import { LOGIN } from "../../gql/mutations/login";
 import ErrorMessage from "../error/ErrorMessage";
+import { UserContext } from "@/contexts/context.react";
 
 const Login = () => {
+  const { refresh } = useContext(UserContext);
   const [login, { error, loading }] = useMutation(LOGIN);
   const { password, username } = useSelector((state: Reducer) => state.login);
   const dispatch = useDispatch();
@@ -34,7 +36,7 @@ const Login = () => {
         },
       });
       await localStorage.setItem("token", data.loginUser.access_token);
-      Router.push("/dashboard");
+      refresh();
     },
   });
 

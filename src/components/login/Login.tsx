@@ -13,11 +13,11 @@ import { useMutation } from "@apollo/client";
 import { LOGIN } from "../../gql/mutations/login";
 import ErrorMessage from "../error/ErrorMessage";
 import { UserContext } from "@/contexts/context.react";
-import { RootState } from '@/contexts/reducers/root.reducers'
+import { RootState } from "@/contexts/reducers/root.reducers";
 
 const Login = () => {
   const { refresh } = useContext(UserContext);
-  const [login, { error, loading }] = useMutation(LOGIN)
+  const [login, { error, loading }] = useMutation(LOGIN);
   const { password, username } = useSelector((state: RootState) => state.login);
   const dispatch = useDispatch();
   const formik = useFormik({

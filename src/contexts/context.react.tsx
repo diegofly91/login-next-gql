@@ -44,8 +44,8 @@ export const UserProvider = ({ children }: Props) => {
       error?.message === "Error: Token error: jwt expired" ||
       !localStorage.getItem("token")
     ) {
-    //  localStorage.clear();
-    //  Router.push("/");
+      //  localStorage.clear();
+      //  Router.push("/");
     }
   };
 

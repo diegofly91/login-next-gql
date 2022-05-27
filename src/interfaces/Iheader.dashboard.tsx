@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
 
 export interface IHeaderProps {
-    window?: () => Window;
-    children: React.ReactElement;
+  window?: () => Window;
+  children: React.ReactElement;
 }
-  

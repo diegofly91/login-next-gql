@@ -1,21 +1,18 @@
 import * as React from "react";
 import type { NextPage } from "next";
-import { Container, Typography } from "@mui/material";
-import styles from "@/styles/pages/Index.module.scss";
-import Footer from "@/components/footer/Footer";
+import styles from "@/styles/pages/Dashboard.module.scss";
 import Logo from "@/components/logo/logo";
+import LayoutDashboard from '@/layouts/dashboard/LayoutDashboard'
+import HeaderAppBar from "@/components/header/Header.dasboard";
+import Panel from '@/layouts/dashboard/PanelDashboard'
 
 const Dashboard: NextPage = () => {
   return (
-    <div className={styles.Layout}>
-      <Container className={styles.component} maxWidth="sm">
-        <Logo width={150} />
-        <Typography variant="h4" sx={{ marginBottom: 3 }}>
-          DASHBOARD
-        </Typography>
-      </Container>
-      <Footer />
-    </div>
+    <LayoutDashboard className={styles.Layout}>
+            <Panel className={styles.panel} />
+            <HeaderAppBar />
+            <div className={styles.component} >  <Logo width={300}/></div>
+    </LayoutDashboard>
   );
 };
 

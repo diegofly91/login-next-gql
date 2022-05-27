@@ -26,7 +26,8 @@
       "@/constants/*": ["src/constants/*"],
       "@/interfaces/*": ["src/interfaces/*"],
       "@/contexts/*": ["src/contexts/*"],
-      "@/validations/*": ["src/validations/*"]
+      "@/validations/*": ["src/validations/*"],
+      "@/layouts/*": ["src/layouts/*"]
     },
   },
   "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx"],

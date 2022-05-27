@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Grid, FormHelperText } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
-import { Reducer } from "redux";
 import TextFieldCustom from "../inputs/TextFieldCustom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -14,11 +13,12 @@ import { useMutation } from "@apollo/client";
 import { LOGIN } from "../../gql/mutations/login";
 import ErrorMessage from "../error/ErrorMessage";
 import { UserContext } from "@/contexts/context.react";
+import { RootState } from '@/contexts/reducers/root.reducers'
 
 const Login = () => {
   const { refresh } = useContext(UserContext);
-  const [login, { error, loading }] = useMutation(LOGIN);
-  const { password, username } = useSelector((state: Reducer) => state.login);
+  const [login, { error, loading }] = useMutation(LOGIN)
+  const { password, username } = useSelector((state: RootState) => state.login);
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {

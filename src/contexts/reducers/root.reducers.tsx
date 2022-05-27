@@ -15,7 +15,7 @@ const persistConfig = {
   key: "root",
   storage,
 };
-const rootReducer = persistReducer(persistConfig, reducers);
+const RootReducer = persistReducer(persistConfig, reducers);
 
 /*
 const rootReducer: CaseReducer<any, PayloadAction<any>>  = (state, action) => { 
@@ -30,6 +30,6 @@ const rootReducer: CaseReducer<any, PayloadAction<any>>  = (state, action) => {
 }
 */
 
-export type RootState = ReturnType<typeof rootReducer>;
+export type RootState = ReturnType<typeof RootReducer>;
 
-export default rootReducer;
+export default RootReducer;

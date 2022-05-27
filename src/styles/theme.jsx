@@ -17,6 +17,12 @@ const theme = createTheme({
       fontSize: 30
     }
   },
+  height: {
+    header: 50,
+  },
+  width: {
+     drawer: 260,
+  },   
   components: {
     MuiFormHelperText: {
       styleOverrides: {

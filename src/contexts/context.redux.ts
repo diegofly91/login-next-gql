@@ -2,10 +2,10 @@ import { configureStore } from "@reduxjs/toolkit";
 import thunk from "redux-thunk";
 import { persistStore } from "redux-persist";
 
-import rootReducer from "./reducers/root.reducers";
+import RootReducer from "./reducers/root.reducers";
 
 const store = configureStore({
-  reducer: rootReducer,
+  reducer: RootReducer,
   devTools: process.env.NODE_ENV !== "production",
   middleware: [thunk],
 });

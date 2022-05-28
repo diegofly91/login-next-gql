@@ -13,3 +13,9 @@ export const updateUserPayload: CaseReducer<
   state.roleName = roleName;
   state.companyId = companyId;
 };
+
+export const logOut: CaseReducer<
+  IUserPayload
+> = (state) => {
+
+}

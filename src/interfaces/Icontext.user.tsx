@@ -1,3 +1,4 @@
+
 export interface IContext {
-  refresh(): void;
+  refetch(): void;
 }

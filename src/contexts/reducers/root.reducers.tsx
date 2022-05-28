@@ -13,22 +13,10 @@ const reducers = combineReducers({
 
 const persistConfig = {
   key: "root",
+  version: 1,
   storage,
 };
 const RootReducer = persistReducer(persistConfig, reducers);
-
-/*
-const rootReducer: CaseReducer<any, PayloadAction<any>>  = (state, action) => { 
-
-    switch (action.type) {
-        case '@root/logout':
-          state = undefined;
-          break
-        default: 
-         return reducers(state, action)
-    }
-}
-*/
 
 export type RootState = ReturnType<typeof RootReducer>;
 

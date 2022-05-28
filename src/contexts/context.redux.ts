@@ -1,16 +1,20 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, AnyAction, Reducer } from "@reduxjs/toolkit";
 import thunk from "redux-thunk";
-import { persistStore } from "redux-persist";
+import { persistStore, PURGE } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import RootReducer, { RootState } from "./reducers/root.reducers";
 
-import RootReducer from "./reducers/root.reducers";
+const rootReducer: Reducer = (state: RootState, action: AnyAction) => {
+  return RootReducer(state, action);
+};
 
 const store = configureStore({
-  reducer: RootReducer,
+  reducer: rootReducer,
   devTools: process.env.NODE_ENV !== "production",
   middleware: [thunk],
 });
 
-export type RootState = ReturnType<typeof store.getState>;
+export type RootStore = ReturnType<typeof store.getState>;
 
 const persistor = persistStore(store);
 

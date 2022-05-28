@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { UserContext } from "@/contexts/context.react";
 import { Grid, FormHelperText } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 import TextFieldCustom from "../inputs/TextFieldCustom";
@@ -12,11 +13,10 @@ import { useFormik } from "formik";
 import { useMutation } from "@apollo/client";
 import { LOGIN } from "../../gql/mutations/login";
 import ErrorMessage from "../error/ErrorMessage";
-import { UserContext } from "@/contexts/context.react";
 import { RootState } from "@/contexts/reducers/root.reducers";
 
 const Login = () => {
-  const { refresh } = useContext(UserContext);
+  const { refetch } = useContext(UserContext);
   const [login, { error, loading }] = useMutation(LOGIN);
   const { password, username } = useSelector((state: RootState) => state.login);
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ const Login = () => {
         },
       });
       await localStorage.setItem("token", data.loginUser.access_token);
-      refresh();
+      refetch()
     },
   });
 

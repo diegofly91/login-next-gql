@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "format": "prettier --write \"src/**/*.tsx\" \"test/**/*.ts\"",
-    "lint": "eslint . --fix",
+    "lint": "next lint",
     "prepare": "husky install"
   },
   "dependencies": {

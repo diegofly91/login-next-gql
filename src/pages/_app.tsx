@@ -41,28 +41,28 @@ export default function MyApp(props: MyAppProps) {
 
   return (
     <>
-        { loading && <PageChange />}
-        <ProvideRedux store={store}>
-          <PersistGate loading={null} persistor={persistor}>
+      {loading && <PageChange />}
+      <CacheProvider value={emotionCache}>
+        <PersistGate loading={null} persistor={persistor}>
+          <ProvideRedux store={store}>
             <ApolloProvider client={client}>
-              <CacheProvider value={emotionCache}>
-                <Head>
-                  <meta
-                    name="viewport"
-                    content="initial-scale=1, width=device-width"
-                  />
-                </Head>
-                <ThemeProvider theme={theme}>
-                  {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-                  <CssBaseline />
-                  <UserProvider>
-                    <Component {...pageProps} />
-                  </UserProvider>
-                </ThemeProvider>
-              </CacheProvider>
+              <Head>
+                <meta
+                  name="viewport"
+                  content="initial-scale=1, width=device-width"
+                />
+              </Head>
+              <ThemeProvider theme={theme}>
+                {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+                <CssBaseline />
+                <UserProvider>
+                  <Component {...pageProps} />
+                </UserProvider>
+              </ThemeProvider>
             </ApolloProvider>
-          </PersistGate>
-        </ProvideRedux>
+          </ProvideRedux>
+        </PersistGate>
+      </CacheProvider>
     </>
   );
 }

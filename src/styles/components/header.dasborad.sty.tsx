@@ -12,8 +12,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     navBar: {
       display: "flex",
-      justifyContent: "flex-end",
-      alignItems: "centerflex-end",
+      padding: 0,
+      justifyContent: "space-between",
+      alignItems: "center",
     },
   })
 );

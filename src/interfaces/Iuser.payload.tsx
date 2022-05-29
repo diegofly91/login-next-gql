@@ -1,3 +1,4 @@
+import { RoleType } from "../enums";
 export interface IUserPayload {
   readonly id: number;
 
@@ -7,7 +8,7 @@ export interface IUserPayload {
 
   readonly roleId: number;
 
-  readonly roleName: string;
+  readonly roleName?: RoleType;
 
   readonly companyId?: number;
 }

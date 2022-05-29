@@ -6,6 +6,7 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       backgroundColor: theme.palette.primary.main,
       padding: 20,
+      minHeight: 50,
       overflow: "hidden",
       display: "flex",
       flexDirection: "column",
@@ -15,6 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
       [theme.breakpoints.down("sm")]: {
         padding: 0,
+        overflow: "visible",
       },
     },
   })

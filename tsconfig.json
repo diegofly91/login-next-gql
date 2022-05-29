@@ -27,7 +27,9 @@
       "@/interfaces/*": ["src/interfaces/*"],
       "@/contexts/*": ["src/contexts/*"],
       "@/validations/*": ["src/validations/*"],
-      "@/layouts/*": ["src/layouts/*"]
+      "@/layouts/*": ["src/layouts/*"],
+      "@/enums/*": ["src/enums/*"],
+      "@/comp-list/*": ["src/components-list/*"],
     },
   },
   "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx"],

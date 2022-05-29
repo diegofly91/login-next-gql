@@ -16,7 +16,7 @@ import ErrorMessage from "../error/ErrorMessage";
 import { RootState } from "@/contexts/reducers/root.reducers";
 
 const Login = () => {
-  const { refetch } = useContext(UserContext);
+  const { refreshUser } = useContext(UserContext);
   const [login, { error, loading }] = useMutation(LOGIN);
   const { password, username } = useSelector((state: RootState) => state.login);
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ const Login = () => {
         },
       });
       await localStorage.setItem("token", data.loginUser.access_token);
-      refetch()
+      refreshUser();
     },
   });
 

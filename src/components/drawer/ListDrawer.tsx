@@ -12,13 +12,15 @@ import {
 } from "@mui/material";
 import { ListItemsComponents } from "@/comp-list/index";
 import { ComponentType } from "@/enums/index";
+import useStyles from "@/styles/components/drawer.dashboard.sty";
 
 const ListDrawer = () => {
+  const classes = useStyles();
   const dispatch = useDispatch();
   const { path } = useSelector((state: RootState) => state.dashboard);
   const { roleName } = useSelector((state: RootState) => state.user);
-
   const [listIttems, setListItems] = useState<IComponentItem[]>([]);
+
   useEffect(() => {
     if (roleName) {
       const list: IComponentItem[] = ListItemsComponents.filter(
@@ -31,7 +33,7 @@ const ListDrawer = () => {
   }, [roleName]);
 
   return (
-    <List>
+    <List className={classes.drawerMobileList}>
       {listIttems.map((item: IComponentItem) => {
         return (
           <ListItem

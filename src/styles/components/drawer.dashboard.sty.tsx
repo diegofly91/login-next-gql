@@ -32,6 +32,13 @@ const useStyles = makeStyles((theme: Theme) =>
         width: 0,
       },
     },
+    drawerMobileList: {
+      paddingTop: 10,
+      [theme.breakpoints.down("sm")]: {
+        paddingTop: theme.height.header + 10,
+        minWidth: 180,
+      },
+    },
   })
 );
 

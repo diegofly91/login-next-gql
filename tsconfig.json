@@ -1,4 +1,4 @@
-{
+{ 
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -30,6 +30,7 @@
       "@/layouts/*": ["src/components/layouts/*"],
       "@/enums/*": ["src/enums/*"],
       "@/comp-list/*": ["src/components-list/*"],
+      "@/forms/*": ["src/forms/*"],
     },
   },
   "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx"],

@@ -27,7 +27,7 @@
       "@/interfaces/*": ["src/interfaces/*"],
       "@/contexts/*": ["src/contexts/*"],
       "@/validations/*": ["src/validations/*"],
-      "@/layouts/*": ["src/layouts/*"],
+      "@/layouts/*": ["src/components/layouts/*"],
       "@/enums/*": ["src/enums/*"],
       "@/comp-list/*": ["src/components-list/*"],
     },

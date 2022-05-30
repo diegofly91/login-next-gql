@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { initialState } from "./states/component.state";
-import { updateComponent, updateDrawer } from "./reducer/component.reducer";
+import {
+  updateComponent,
+  updateDrawer,
+  updateSuccess,
+} from "./reducer/component.reducer";
 
 export const slice = createSlice({
   name: "component",
@@ -8,8 +12,9 @@ export const slice = createSlice({
   reducers: {
     UpdateComponent: updateComponent,
     UpdateDrawer: updateDrawer,
+    UpdateSuccess: updateSuccess,
   },
 });
 
-export const { UpdateComponent, UpdateDrawer } = slice.actions;
+export const { UpdateComponent, UpdateDrawer, UpdateSuccess } = slice.actions;
 export default slice.reducer;

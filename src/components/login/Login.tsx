@@ -11,7 +11,7 @@ import {
 import { LoginYup } from "@/validations/login.yup";
 import { useFormik } from "formik";
 import { useMutation } from "@apollo/client";
-import { LOGIN } from "../../gql/mutations/login";
+import { LOGIN } from "../../gql/mutations/login.query";
 import ErrorMessage from "../error/ErrorMessage";
 import { RootState } from "@/contexts/reducers/root.reducers";
 

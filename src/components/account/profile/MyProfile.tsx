@@ -7,9 +7,11 @@ import {
   UpdateProfile,
   UpdateUserKeyValue,
 } from "@/contexts/reducers/user/user.slice.reducer";
+import { UpdateSuccess } from "@/contexts/reducers/dashboard/dashboard.slice.reducer";
 import { ProfileYup } from "@/validations/profile.yup";
 import { useFormik } from "formik";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
+import { UPDATE_PROFILE } from "@/gql/mutations/user.query";
 import { USER_PROFILE } from "@/gql/querys/user";
 import ErrorMessage from "../../error/ErrorMessage";
 import { RootState } from "@/contexts/reducers/root.reducers";
@@ -18,14 +20,15 @@ const MyProfile = () => {
   const { firstname, lastname, email, phone, id } = useSelector(
     (state: RootState) => state.user
   );
-  const { data, error, loading } = useQuery(USER_PROFILE, {
+  const [updateProfile, { loading, error: errorProfile }] =
+    useMutation(UPDATE_PROFILE);
+  const { data, error } = useQuery(USER_PROFILE, {
     variables: { userId: id },
     fetchPolicy: "network-only",
   });
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(data);
     if (data && data.getProfileUserById) {
       dispatch(UpdateProfile(data.getProfileUserById));
     }
@@ -42,6 +45,13 @@ const MyProfile = () => {
     validationSchema: ProfileYup,
     onSubmit: async (values) => {
       console.log(values);
+      const { data: dataProfile } = await updateProfile({
+        variables: { input: values },
+      });
+      if (dataProfile) {
+        console.log("dataProfile");
+        dispatch(UpdateSuccess(true));
+      }
     },
   });
   return (
@@ -96,7 +106,24 @@ const MyProfile = () => {
           />
         </Grid>
         <Grid item md={8} xs={10}>
+          <FormHelperText>PHONE:</FormHelperText>
+          <TextFieldCustom
+            id="phone"
+            name="phone"
+            value={formik.values.phone}
+            error={!!formik.errors.phone && formik.touched.phone}
+            onBlur={formik.handleBlur}
+            onChange={(e) => {
+              formik.handleChange(e);
+              const send = { key: "phone", value: e.target.value };
+              dispatch(UpdateUserKeyValue(send));
+            }}
+            fullWidth={true}
+          />
+        </Grid>
+        <Grid item md={8} xs={10}>
           {error && <ErrorMessage error={error} />}
+          {errorProfile && <ErrorMessage error={errorProfile} />}
           <LoadingButton
             variant="contained"
             type="submit"

@@ -7,9 +7,16 @@ import {
   updateUserKeyValue,
 } from "./reducer";
 
+import { IUser } from "@/interfaces/IUser";
+
+const userInitial: IUser = {
+  ...initialUserPayloadState,
+  ...initialProfile,
+};
+
 const slice = createSlice({
   name: "user",
-  initialState: { ...initialUserPayloadState, ...initialProfile },
+  initialState: userInitial,
   reducers: {
     UpdateUserPayload: updateUserPayload,
     LogOutUser: logOut,

@@ -5,5 +5,5 @@ export const ProfileYup = yup.object().shape({
   firstname: yup.string().optional(),
   lastname: yup.string().optional(),
   email: yup.string().email().required("el email es requerido"),
-  phone: yup.string().min(10).optional(),
+  phone: yup.string().optional(),
 } as Record<keyof IProfile, any>);

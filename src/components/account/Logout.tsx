@@ -8,6 +8,7 @@ function LogOut() {
   const { refreshUser } = useContext(UserContext);
   const handleClose = async () => {
     await persistor.purge();
+    localStorage.clear();
     refreshUser();
   };
 

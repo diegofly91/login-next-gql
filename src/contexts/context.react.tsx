@@ -1,7 +1,7 @@
 import React, { createContext, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import Router from "next/router";
-import { USER_CURRENT } from "../gql/querys/current";
+import { USER_CURRENT } from "../gql/querys/current.mutation";
 import { useDispatch } from "react-redux";
 import { UpdateUserPayload } from "@/contexts/reducers/user/user.slice.reducer";
 import { IContext } from "@/interfaces/index";
@@ -25,16 +25,19 @@ export const UserProvider = ({ children }: Props) => {
         Router.push("/dashboard");
       }
     }
-    if (data?.userCurrent == null) {
+    if (!localStorage.getItem("token")) {
       init();
     }
-    if (error && Router.pathname === "/dashboard") {
+
+    if (
+      error?.message === "Error: Token error: jwt expired" &&
+      Router.pathname === "/dashboard"
+    ) {
       init();
     }
   }, [data, error]);
 
   const init = async () => {
-    localStorage.clear();
     Router.push("/");
   };
 

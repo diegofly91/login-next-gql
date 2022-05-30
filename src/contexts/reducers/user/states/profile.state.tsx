@@ -1,7 +1,7 @@
 import { IProfile } from "@/interfaces/index";
 
 export const initialProfile: IProfile = {
-  firtsname: "",
+  firstname: "",
   lastname: "",
   email: "",
   phone: "",

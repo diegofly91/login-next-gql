@@ -3,6 +3,7 @@ import { Divider, SwipeableDrawer } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { UpdateDrawer } from "@/contexts/reducers/dashboard/dashboard.slice.reducer";
 import { RootState } from "@/contexts/reducers/root.reducers";
+import ListDrawer from "./ListDrawer";
 
 const MobileDrawer = () => {
   const { drawer } = useSelector((state: RootState) => state.dashboard);
@@ -16,6 +17,7 @@ const MobileDrawer = () => {
       onOpen={() => dispatch(UpdateDrawer())}
     >
       <Divider />
+      <ListDrawer />
       <Divider />
     </SwipeableDrawer>
   );

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Menu, MenuItem, ListItemIcon, Divider } from "@mui/material";
-import { ComponentsAccount } from "@/comp-list/index";
+import { ListItemsComponents } from "@/comp-list/index";
 import { RootState } from "@/contexts/reducers/root.reducers";
 import { useSelector, useDispatch } from "react-redux";
-import { IComponentItem, IDashboard } from "@/interfaces/index";
+import { IComponentItem } from "@/interfaces/index";
 import { UpdateComponent } from "@/contexts/reducers/dashboard/dashboard.slice.reducer";
 import Logout from "./Logout";
 import AvatarUser from "./AvatarUser";
+import { ComponentType } from "@/enums/index";
 
 function MainAccount() {
   const dispatch = useDispatch();
@@ -24,8 +25,10 @@ function MainAccount() {
 
   useEffect(() => {
     if (roleName) {
-      const list: IComponentItem[] = ComponentsAccount.filter(
-        (item: IComponentItem) => item.roles.includes(roleName)
+      const list: IComponentItem[] = ListItemsComponents.filter(
+        (item: IComponentItem) =>
+          item.roles.includes(roleName) &&
+          item.show.includes(ComponentType.HEADER)
       );
       setListItems(list);
     }
@@ -69,16 +72,13 @@ function MainAccount() {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        {listIttems.map((item: IComponentItem) => {
+        {listIttems?.map((item: IComponentItem) => {
           return (
             <MenuItem
               selected={path === item.path}
               onClick={() => {
-                const send: IDashboard = {
-                  component: item.ComponentMain,
-                  path: item.path,
-                };
-                dispatch(UpdateComponent(send));
+                const { path } = item;
+                dispatch(UpdateComponent(path));
                 handleClose();
               }}
               key={item.path}

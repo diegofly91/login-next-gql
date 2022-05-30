@@ -1,7 +1,5 @@
 import { PayloadAction, CaseReducer } from "@reduxjs/toolkit";
-import { IUserPayload, IProfile } from "@/interfaces/index";
-
-interface IUser extends IUserPayload, IProfile {}
+import { IUserPayload, IProfile, IUser } from "@/interfaces/index";
 
 export const updateUserPayload: CaseReducer<
   IUser,

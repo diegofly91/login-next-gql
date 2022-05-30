@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { Drawer, Divider } from "@mui/material";
 import useStyles from "@/styles/components/drawer.dashboard.sty";
 import { RootState } from "@/contexts/reducers/root.reducers";
+import ListDrawer from "./ListDrawer";
 
 const MiniDrawer = () => {
   const classes = useStyles();
@@ -24,6 +25,7 @@ const MiniDrawer = () => {
       elevation={3}
     >
       <Divider />
+      <ListDrawer />
       <Divider />
     </Drawer>
   );
